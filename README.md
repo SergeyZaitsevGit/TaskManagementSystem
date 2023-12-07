@@ -1,11 +1,11 @@
 # TaskManagementSystem
 ## Инструкция для запуска
 ### 1. Создание .env файла
-Создайте файл с названием .env в корне вашего проекта, и поместите в него переменные окружения. Пример:
+Создайте файл .env в корне вашего проекта, и поместите в него переменные окружения. Пример:
 ```
 POSTGRES_DATABASE=spring_web_task_system  #Название базы данных
-POSTGRES_USERNAME=postgres #Имя пользователя базы данных
-POSTGRES_PASSWORD=postgres #Пароль для пользователя
+POSTGRES_USERNAME=postgres
+POSTGRES_PASSWORD=postgres
 JWT_SECRET=c2prZmhvaWFlZnVnYX #Секретная строка для генерации токенов
 ```
 
