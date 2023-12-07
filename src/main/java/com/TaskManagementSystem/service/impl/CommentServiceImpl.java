@@ -40,7 +40,7 @@ public class CommentServiceImpl implements CommentService {
     if (!commentRepository.existsById(comment.getId())) {
       throw new ResourceNotFoundException("Comment not found.");
     }
-    comment.setText(comment.getText());
+    updated.setText(comment.getText());
     commentRepository.save(updated);
     return updated;
   }
