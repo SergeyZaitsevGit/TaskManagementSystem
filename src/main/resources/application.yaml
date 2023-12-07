@@ -13,5 +13,5 @@ spring:
 security:
   jwt:
     secret: ${JWT_SECRET}
-    access: 3600000
-    refresh: 2592000000
+    access: 1
+    refresh: 30

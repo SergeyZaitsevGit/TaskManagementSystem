@@ -86,10 +86,10 @@ public class ControllerAdvice {
   }
 
 
-  @ExceptionHandler(Exception.class)
-  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  public ExceptionBody handleException(final Exception e) {
-    return new ExceptionBody("Internal error.");
-  }
+//  @ExceptionHandler(Exception.class)
+//  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//  public ExceptionBody handleException(final Exception e) {
+//    return new ExceptionBody("Internal error.");
+//  }
 
 }
