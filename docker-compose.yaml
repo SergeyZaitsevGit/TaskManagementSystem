@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: taskManagementSystem
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+
+    environment:
+      SPRING_CONFIG_IMPORT: optional:file:.env[.properties]
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_SHOW_SQL: 'true'
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/${POSTGRES_DATABASE}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      SECURITY_JWT_SECRET: c2prZmhvaWFlZnVnYXFkandxbGRvd3FmaGJpc3ZmY2lscXdoZWlmcXJkZ3dlZmJ3ZWhnZg
+      SECURITY_JWT_ACCESS: 3600000
+      SECURITY_JWT_REFRESH: 2592000000
+
+  db:
+    image: postgres:10
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    ports:
+      - '5432:5432'
