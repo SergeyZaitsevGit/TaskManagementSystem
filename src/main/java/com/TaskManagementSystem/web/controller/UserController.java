@@ -41,7 +41,7 @@ public class UserController {
 
   @GetMapping("/{id}")
   @Operation(summary = "Get UserDto by id")
-  @PreAuthorize("@customSecurityExpression.canAccessUser(#dto.id)")
+  @PreAuthorize("@customSecurityExpression.canAccessUser(#id)")
   public UserDto getById(@PathVariable final Long id) {
     User user = userService.getById(id);
     return userMapper.toDto(user);
